@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="+"
+        android:textSize="80sp"
+        android:layout_margin="20dp">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
