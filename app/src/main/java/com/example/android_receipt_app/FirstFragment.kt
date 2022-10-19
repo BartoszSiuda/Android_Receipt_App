@@ -40,8 +40,8 @@ class FirstFragment : Fragment() {
 
         binding.button.setOnClickListener {
 
-            fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment_content_main,SecondFragment())?.commit()
-        
+//            fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment_content_main,SecondFragment())?.commit()
+
 
 
         }
