@@ -6,11 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
+    <TextView
+        android:id="@+id/greenbackgroundtext"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="30dp"
+        android:text="ADD NEW RECEIPT"
+        android:background="#00C851"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        />
+    
+    
 <EditText
     android:id="@+id/Title1"
-    android:layout_width="200dp"
-    android:layout_height="100dp"
-    android:textSize="50dp"
+    android:layout_width="350dp"
+    android:layout_height="50dp"
+
+    android:background="@drawable/text_input_background"
+
+    android:textSize="30dp"
+    android:textColor="#777777"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
@@ -19,14 +36,17 @@
 
     <EditText
         android:id="@+id/Description1"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
         android:textSize="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/text_input_background"
+
+        android:textColor="#777777"
         app:layout_constraintTop_toBottomOf="@id/Title1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Description"/>
+        android:text="Start typing receipt text..."/>
 
     <Button
         android:id="@+id/Add_recepit"
