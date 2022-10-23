@@ -1,6 +1,5 @@
 package com.example.android_receipt_app
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,30 +22,22 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         setupButtons()
         return binding.root
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
     }
 
     private fun setupButtons() {
-
         binding.button.setOnClickListener {
-
-//            fragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment_content_main,SecondFragment())?.commit()
-
-
-
+            openSecondFragment()
         }
+    }
 
-
+    private fun openSecondFragment() {
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(com.example.android_receipt_app.R.id.nav_host_fragment_content_main, SecondFragment())
+        transaction?.addToBackStack(null)
+        transaction?.commit()
     }
 
     override fun onDestroyView() {
