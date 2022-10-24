@@ -9,27 +9,31 @@
     android:clickable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/narrow"
-        android:layout_width="100dp"
+        android:id="@+id/narrow_box"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
         android:background="#00C851">
 
+        <ImageButton
+            android:src="@drawable/ic_arrow_1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#00C851"/>
+
+        <TextView
+            android:id="@+id/greenbackgroundtext"
+            android:layout_width="310dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="100dp"
+            android:background="#00C851"
+            android:gravity="center"
+            android:text="@string/greenbackgroundtext"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <TextView
-        android:id="@+id/greenbackgroundtext"
-        android:layout_width="310dp"
-        android:layout_height="100dp"
-        android:background="#00C851"
-        android:gravity="center"
-        android:text="@string/greenbackgroundtext"
-        android:textColor="#FFFFFF"
-        android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@id/narrow"
-        />
-
 
     <EditText
         android:id="@+id/Title1"
@@ -43,7 +47,7 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greenbackgroundtext" />
+        app:layout_constraintTop_toBottomOf="@+id/narrow_box" />
 
     <EditText
         android:id="@+id/Description1"
