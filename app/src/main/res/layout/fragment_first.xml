@@ -10,7 +10,9 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/single_receipt"/>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-74dp"
+        tools:listitem="@layout/single_receipt" />
 
     <Button
         android:id="@+id/button"
