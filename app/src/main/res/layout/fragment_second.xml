@@ -59,7 +59,7 @@
         android:background="@drawable/text_input_background"
         android:gravity="top"
         android:hint="@string/Start_typing_receipt_text..."
-        android:textColor="#777777"
+        android:textColor="@color/gray"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
