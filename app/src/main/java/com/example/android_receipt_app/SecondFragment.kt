@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.android_receipt_app.databinding.FragmentFirstBinding
 import com.example.android_receipt_app.databinding.FragmentSecondBinding
 
 /**
@@ -23,16 +24,26 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        setupButtons()
         return binding.root
-
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun setupButtons() {
+        binding.buttonArrow.setOnClickListener {
+            openFirstFragment()
+        }
 
+        binding.confirm.setOnClickListener {
+            openFirstFragment()
+        }
+    }
 
+    private fun openFirstFragment() {
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.nav_host_fragment_content_main, FirstFragment())
+        transaction?.addToBackStack(null)
+        transaction?.commit()
     }
 
     override fun onDestroyView() {

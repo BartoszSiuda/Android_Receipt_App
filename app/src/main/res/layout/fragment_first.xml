@@ -15,7 +15,7 @@
         tools:listitem="@layout/single_receipt" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_purple"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"

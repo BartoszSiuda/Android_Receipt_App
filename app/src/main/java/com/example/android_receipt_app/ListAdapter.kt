@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.main_feed_list_item.view.*
-import redditandroidapp.data.database.PostDatabaseEntity
+//import kotlinx.android.synthetic.main.main_feed_list_item.view.*
 
 // Main adapter used for managing items list within the main RecyPostDatabaseEntityclerView (main feed listed)
 class ListAdapter (private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
@@ -34,14 +33,14 @@ class ListAdapter (private val context: Context) : RecyclerView.Adapter<ViewHold
 //        val urlToImage = receiptsList[position].thumbnail
 
         // Set data within the holder
-        holder.title.text = title
+//        holder.title.text = title
 //        holder.author.text = author
     }
 }
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
 //    val picture = view.imageView_picture
-    val title = view.greenbackgroundtext
+//    val title = view.greenbackgroundtext
 //    val author = view.textView_author
 //    val rowContainer = view.row_container
 }

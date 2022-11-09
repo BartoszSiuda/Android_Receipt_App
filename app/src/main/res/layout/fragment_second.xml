@@ -16,7 +16,9 @@
         android:background="#00C851">
 
         <ImageButton
+            android:id="@+id/button_arrow"
             android:src="@drawable/ic_arrow_1"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -26,6 +28,7 @@
             android:id="@+id/greenbackgroundtext"
             android:layout_width="310dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_height="100dp"
             android:background="#00C851"
             android:gravity="center"

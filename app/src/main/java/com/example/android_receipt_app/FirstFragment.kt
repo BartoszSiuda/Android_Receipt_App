@@ -28,7 +28,7 @@ class FirstFragment : Fragment() {
     }
 
     private fun setupButtons() {
-        binding.button.setOnClickListener {
+        binding.buttonPurple.setOnClickListener {
             openSecondFragment()
         }
     }
