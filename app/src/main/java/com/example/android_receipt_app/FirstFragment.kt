@@ -27,6 +27,10 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
+    private fun setupList() {
+
+    }
+
     private fun setupButtons() {
         binding.buttonPurple.setOnClickListener {
             openSecondFragment()
@@ -43,6 +47,24 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun getFakeReceipts(): List<ReceiptEntity> {
+
+        // We create variables (boxes) with title, image and description.
+        val title = "Naleśniki"
+        val image = "https://www.everyday-delicious.com/wp-content/uploads/2021/01/nalesniki-recipe-nalesniki-z-serem-everyday-delicious-3.jpg"
+        val description = "This naleśniki recipe is one of the favorite dishes from my childhood. It consists of crepes filled with sweetened Polish twaróg cheese with a touch of vanilla. They taste absolutely amazing and are easy to make!"
+
+        // Now we create our "fake receipt" for construction purposes.
+        val fakeReceipt = ReceiptEntity(
+            title,
+            image,
+            description
+        )
+
+        // We return the list of receipts to anyone who asked for it.
+        return listOf<ReceiptEntity>(fakeReceipt, fakeReceipt, fakeReceipt)
     }
 }
 
