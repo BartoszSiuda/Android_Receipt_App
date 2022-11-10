@@ -79,8 +79,12 @@ class FirstFragment : Fragment() {
             description
         )
 
+        val listOfFakeReceipts = ArrayList<ReceiptEntity>()
+        for (int in 0..15) {
+            listOfFakeReceipts.add(fakeReceipt)
+        }
         // We return the list of receipts to anyone who asked for it.
-        return listOf(fakeReceipt, fakeReceipt, fakeReceipt)
+        return listOfFakeReceipts
     }
 }
 

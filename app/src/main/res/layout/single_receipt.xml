@@ -9,6 +9,7 @@
     android:background="@drawable/title_of_the_receipt_background">
 
     <ImageView
+        android:id="@+id/image_of_nalesniki"
         android:background="@drawable/image_input_background"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="100dp"
@@ -25,6 +26,7 @@
         android:textSize="25sp"/>
 
     <TextView
+        android:id="@+id/description_receipt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Recepit"

@@ -27,19 +27,19 @@ class ListAdapter (private val context: Context?) : RecyclerView.Adapter<ViewHol
 
         // Prepare fetched data
         val title = receiptsList[position].title
-        // Todo: Add image.
-        // Todo: Add description.
+        val image = receiptsList[position].image
+        val description = receiptsList[position].description
 
         // Set data within the holder
         holder.titleXml.text = title
         // Todo: Add image.
-        // Todo: Add description.
+        holder.descriptionXml.text = description
 
     }
 }
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val titleXml = view.receipt_title
-    // Todo: Add image.
-    // Todo: Add description.
+    val imageXml = view.image_of_nalesniki
+    val descriptionXml = view.description_receipt
 }
