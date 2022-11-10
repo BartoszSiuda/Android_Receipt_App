@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.single_receipt.view.*
 
 
@@ -32,7 +33,9 @@ class ListAdapter (private val context: Context?) : RecyclerView.Adapter<ViewHol
 
         // Set data within the holder
         holder.titleXml.text = title
-        // Todo: Add image.
+        Picasso.with(context)
+            .load(image)
+            .into(holder.imageXml)
         holder.descriptionXml.text = description
 
     }

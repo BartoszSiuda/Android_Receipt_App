@@ -10,6 +10,7 @@
 
     <ImageView
         android:id="@+id/image_of_nalesniki"
+        android:scaleType="centerCrop"
         android:background="@drawable/image_input_background"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="100dp"
