@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.main_feed_list_item.view.*
+import kotlinx.android.synthetic.main.single_receipt.view.*
 
-// Main adapter used for managing items list within the main RecyPostDatabaseEntityclerView (main feed listed)
-class ListAdapter (private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+
+class ListAdapter (private val context: Context?) : RecyclerView.Adapter<ViewHolder>() {
 
     private var receiptsList: List<ReceiptEntity> = ArrayList()
 
@@ -40,4 +40,6 @@ class ListAdapter (private val context: Context) : RecyclerView.Adapter<ViewHold
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val titleXml = view.receipt_title
+    // Todo: Add image.
+    // Todo: Add description.
 }

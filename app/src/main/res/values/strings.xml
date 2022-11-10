@@ -13,6 +13,6 @@
     <string name="Title">Title</string>
     <string name="CONFIRM">CONFIRM</string>
     <string name="Title_of_the_receipt">Title of the receipt</string>
-    <string name="Recepit">Receipt blah blah blah blah blah blah blah blah blah blah blah blah...</string>
+    <string name="Recepit">Description of the receipt</string>
 
 </resources>
