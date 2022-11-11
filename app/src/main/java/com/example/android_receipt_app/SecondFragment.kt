@@ -35,6 +35,18 @@ class SecondFragment : Fragment() {
         }
 
         binding.confirm.setOnClickListener {
+
+
+            val title = binding.Title1.text.toString()
+            val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
+            val description = binding.Description1.text.toString()
+            val receipt = ReceiptEntity(
+                title,
+                image,
+                description
+            )
+            (activity as MainActivity).receiptsMainStorage.add(receipt)
+
             openFirstFragment()
         }
     }
