@@ -6,7 +6,13 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+<string name="Start_typing_receipt_text...">Start typing receipt text...</string>
+    <string name="greenbackgroundtext">ADD NEW RECEIPT</string>
+    <string name="Title">Title</string>
+    <string name="CONFIRM">CONFIRM</string>
+    <string name="Title_of_the_receipt">Title of the receipt</string>
+    <string name="Recepit">Description of the receipt</string>
+
 </resources>
