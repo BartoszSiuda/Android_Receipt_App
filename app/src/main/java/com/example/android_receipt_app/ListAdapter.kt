@@ -43,6 +43,6 @@ class ListAdapter (private val context: Context?) : RecyclerView.Adapter<ViewHol
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val titleXml = view.receipt_title
-    val imageXml = view.image_of_nalesniki
+    val imageXml = view.real_image
     val descriptionXml = view.description_receipt
 }
