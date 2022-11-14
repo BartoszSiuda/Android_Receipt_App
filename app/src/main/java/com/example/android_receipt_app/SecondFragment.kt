@@ -34,26 +34,27 @@ class SecondFragment : Fragment() {
 
         binding.confirm.setOnClickListener {
 
-            //if (...) {
-            //}
-
-            // 1. We create a new box (receipt).
-            val title = binding.Title1.text.toString()
-            val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
-            val description = binding.Description1.text.toString()
-            val receipt = ReceiptEntity(
-                title,
-                image,
-                description
-            )
-
-            // 2. We add our new receipt to all receipts box.
-            (activity as MainActivity).receiptsMainStorage.add(receipt)
-
-            // 3. We come back to the first fragment.
+            createReceiptAndAddToList()
             openFirstFragment()
         }
     }
+
+    private fun createReceiptAndAddToList() {
+
+        val title = binding.Title1.text.toString()
+        val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
+        val description = binding.Description1.text.toString()
+        val receipt = ReceiptEntity(
+            title,
+            image,
+            description
+        )
+
+        // 2. We add our new receipt to all receipts box.
+        (activity as MainActivity).receiptsMainStorage.add(receipt)
+
+    }
+
 
     private fun openFirstFragment() {
         val transaction = activity?.supportFragmentManager?.beginTransaction()
