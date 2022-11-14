@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.android_receipt_app.databinding.FragmentFirstBinding
 import com.example.android_receipt_app.databinding.FragmentSecondBinding
 
 /**
@@ -23,7 +21,7 @@ class SecondFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         setupButtons()
         return binding.root
@@ -36,7 +34,10 @@ class SecondFragment : Fragment() {
 
         binding.confirm.setOnClickListener {
 
+            //if (...) {
+            //}
 
+            // 1. We create a new box (receipt).
             val title = binding.Title1.text.toString()
             val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
             val description = binding.Description1.text.toString()
@@ -45,8 +46,11 @@ class SecondFragment : Fragment() {
                 image,
                 description
             )
+
+            // 2. We add our new receipt to all receipts box.
             (activity as MainActivity).receiptsMainStorage.add(receipt)
 
+            // 3. We come back to the first fragment.
             openFirstFragment()
         }
     }
