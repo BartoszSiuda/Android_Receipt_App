@@ -33,14 +33,8 @@ class SecondFragment : Fragment() {
         }
 
         binding.confirm.setOnClickListener {
-
-
             val newReceipt = createReceipt()
-
-            
             addReceiptToTheList(newReceipt)
-
-
             openFirstFragment()
         }
     }

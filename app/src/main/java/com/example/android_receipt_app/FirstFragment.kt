@@ -57,9 +57,12 @@ class FirstFragment : Fragment() {
         list.adapter = adapter
 
         // We send things we wanna display to the adapter.
-        //val fakePosts = getFakeReceipts()
+        fetchReceiptToDisplay(adapter)
+
+    }
+
+    private fun fetchReceiptToDisplay(adapter: ListAdapter) {
         val storedReceipts = (activity as MainActivity).receiptsMainStorage
         adapter.setPosts(storedReceipts)
     }
-
 }
