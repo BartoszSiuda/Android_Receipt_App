@@ -75,7 +75,7 @@ class FirstFragment : Fragment() {
     var simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
         ItemTouchHelper.SimpleCallback(
             0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or ItemTouchHelper.DOWN or ItemTouchHelper.UP
+              ItemTouchHelper.RIGHT 
         ) {
         override fun onMove(
             recyclerView: RecyclerView,
