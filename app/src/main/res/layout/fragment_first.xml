@@ -20,7 +20,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="+"
-        android:textSize="80sp"
-        android:layout_margin="20dp"/>
+        android:gravity="center"
+        app:backgroundTint="#00C851"
+        android:background="@drawable/image_input_background"
+        android:textSize="60sp"
+        android:layout_margin="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
