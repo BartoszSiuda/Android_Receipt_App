@@ -68,7 +68,7 @@ class FirstFragment : Fragment() {
     }
 
     private fun fetchReceiptToDisplay(adapter: ListAdapter) {
-        val storedReceipts = (activity as MainActivity).receiptsMainStorage
+        val storedReceipts = (activity as MainActivity).viewModel.receiptsMainStorage
         adapter.setPosts(storedReceipts)
     }
 

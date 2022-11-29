@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 //    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
-    public var receiptsMainStorage = ArrayList<ReceiptEntity>()
+    val viewModel = ReceiptStorageViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

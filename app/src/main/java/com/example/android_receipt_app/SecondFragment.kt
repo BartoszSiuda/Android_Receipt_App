@@ -52,7 +52,7 @@ class SecondFragment : Fragment() {
     }
 
     private fun addReceiptToTheList(receipt: ReceiptEntity){
-        (activity as MainActivity).receiptsMainStorage.add(receipt)
+        (activity as MainActivity).viewModel.receiptsMainStorage.add(receipt)
     }
 
     private fun openFirstFragment() {
