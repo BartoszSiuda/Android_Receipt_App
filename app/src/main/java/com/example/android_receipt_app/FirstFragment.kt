@@ -82,23 +82,17 @@ class FirstFragment : Fragment() {
             viewHolder: RecyclerView.ViewHolder,
             target: RecyclerView.ViewHolder
         ): Boolean {
-
             Toast.makeText(activity, "on Move", Toast.LENGTH_SHORT).show()
-
             return false
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
-
             Toast.makeText(activity, "on Swiped ", Toast.LENGTH_SHORT).show()
-
-//            Remove swiped item from list and notify the RecyclerView
-//            val position = viewHolder.adapterPosition
-//            arrayList.remove(position)
-//            adapter.notifyDataSetChanged()
         }
     }
 
+    private fun deleteReceiptFromTheList() {
 
+    }
 
 }

@@ -7,15 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.android_receipt_app.databinding.FragmentSecondBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -39,16 +33,16 @@ class SecondFragment : Fragment() {
         }
     }
 
-    private fun createReceipt() : ReceiptEntity {
+    private fun createReceipt(): ReceiptEntity {
         val title = binding.Title1.text.toString()
         val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
         val description = binding.Description1.text.toString()
-        val receipt = ReceiptEntity(
+      
+        return ReceiptEntity(
             title,
             image,
             description
         )
-        return receipt
     }
 
     private fun addReceiptToTheList(receipt: ReceiptEntity){
