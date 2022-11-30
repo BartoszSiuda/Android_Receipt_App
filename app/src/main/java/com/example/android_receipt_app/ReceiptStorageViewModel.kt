@@ -4,12 +4,8 @@ class ReceiptStorageViewModel {
 
     var receiptsMainStorage = ArrayList<ReceiptEntity>()
 
-
-     fun removeReceiptFromMainStorage(receiptToDelete: ReceiptEntity) {
-
-         receiptsMainStorage.remove(receiptToDelete)
-
+     fun removeReceiptFromMainStorage(receiptToDelete: Int) {
+         receiptsMainStorage.removeAt(receiptToDelete)
     }
 
-    
 }

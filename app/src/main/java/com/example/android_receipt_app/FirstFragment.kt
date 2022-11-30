@@ -88,10 +88,14 @@ class FirstFragment : Fragment() {
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
             Toast.makeText(activity, "on Swiped ", Toast.LENGTH_SHORT).show()
+            val position = viewHolder.adapterPosition
+            deleteReceiptFromTheList(position)
+
         }
     }
 
-    private fun deleteReceiptFromTheList() {
+    private fun deleteReceiptFromTheList(receiptToDelete: Int) {
+        (activity as MainActivity).viewModel.removeReceiptFromMainStorage(receiptToDelete)
 
     }
 
