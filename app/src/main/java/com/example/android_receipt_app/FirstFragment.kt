@@ -17,6 +17,9 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
 
+    // Initially empty variable (box).
+    var adapter: ListAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +31,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupButtons()
+        adapter = ListAdapter(context)
         setupList()
     }
 
@@ -53,14 +57,14 @@ class FirstFragment : Fragment() {
 
     private fun setupList() {
 
-        // We create a new adapter here.
-        val adapter = ListAdapter(context)
-
         // We connect adapter to the list.
         list.adapter = adapter
 
         // We send things we wanna display to the adapter.
-        fetchReceiptToDisplay(adapter)
+        adapter?.let {
+            fetchReceiptToDisplay(it)
+        }
+//        fetchReceiptToDisplay(adapter)
 
         val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
         itemTouchHelper.attachToRecyclerView(list)
@@ -91,6 +95,13 @@ class FirstFragment : Fragment() {
             val position = viewHolder.adapterPosition
             deleteReceiptFromTheList(position)
 
+            // Better solution.
+            adapter?.let {
+                fetchReceiptToDisplay(it)
+            }
+
+            // Worse solution.
+            //fetchReceiptToDisplay(adapter!!)
         }
     }
 
