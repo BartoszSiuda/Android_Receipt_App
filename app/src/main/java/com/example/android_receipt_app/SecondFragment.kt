@@ -29,9 +29,6 @@ class SecondFragment : Fragment() {
 
         binding.confirm.setOnClickListener {
 
-            // Todo: Add validation. Check here if the title or description is empty. If any
-            //  of these two is empty - then display the Toast message with text
-            //  "Empty title or description". Otherwise ("else") perform the code below.
             val newReceipt = createReceipt()
 
             if (binding.Title1.text.isEmpty()) {
