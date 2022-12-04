@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.android_receipt_app.databinding.FragmentFirstBinding
 import kotlinx.android.synthetic.main.fragment_first.*
 
@@ -13,6 +16,9 @@ class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
+
+    // Initially empty variable (box).
+    var adapter: ListAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +31,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupButtons()
+        adapter = ListAdapter(context)
         setupList()
     }
 
@@ -50,41 +57,57 @@ class FirstFragment : Fragment() {
 
     private fun setupList() {
 
-        // We create a new adapter here.
-        val adapter = ListAdapter(context)
-
         // We connect adapter to the list.
         list.adapter = adapter
 
         // We send things we wanna display to the adapter.
-        val fakePosts = getFakeReceipts()
-        adapter.setPosts(fakePosts)
-    }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    fun getFakeReceipts(): List<ReceiptEntity> {
-
-        // We create variables (boxes) with title, image and description.
-        val title = "Naleśniki"
-        val image = "https://www.everyday-delicious.com/wp-content/uploads/2021/01/nalesniki-recipe-nalesniki-z-serem-everyday-delicious-3.jpg"
-        val description = "This naleśniki recipe is one of the favorite dishes from my childhood. It consists of crepes filled with sweetened Polish twaróg cheese with a touch of vanilla. They taste absolutely amazing and are easy to make!"
-
-        // Now we create our "fake receipt" for construction purposes.
-        val fakeReceipt = ReceiptEntity(
-            title,
-            image,
-            description
-        )
-
-        val listOfFakeReceipts = ArrayList<ReceiptEntity>()
-        for (int in 0..15) {
-            listOfFakeReceipts.add(fakeReceipt)
+        adapter?.let {
+            fetchReceiptToDisplay(it)
         }
-        // We return the list of receipts to anyone who asked for it.
-        return listOfFakeReceipts
-    }
-}
+//        fetchReceiptToDisplay(adapter)
 
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(list)
+
+    }
+
+    private fun fetchReceiptToDisplay(adapter: ListAdapter) {
+        val storedReceipts = (activity as MainActivity).viewModel.receiptsMainStorage
+        adapter.setPosts(storedReceipts)
+    }
+
+    var simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
+        ItemTouchHelper.SimpleCallback(
+            0,
+              ItemTouchHelper.RIGHT 
+        ) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            Toast.makeText(activity, "on Move", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+            Toast.makeText(activity, "on Swiped ", Toast.LENGTH_SHORT).show()
+            val position = viewHolder.adapterPosition
+            deleteReceiptFromTheList(position)
+
+            // Better solution.
+            adapter?.let {
+                fetchReceiptToDisplay(it)
+            }
+
+            // Worse solution.
+            //fetchReceiptToDisplay(adapter!!)
+        }
+    }
+
+    private fun deleteReceiptFromTheList(receiptToDelete: Int) {
+        (activity as MainActivity).viewModel.removeReceiptFromMainStorage(receiptToDelete)
+
+    }
+
+}

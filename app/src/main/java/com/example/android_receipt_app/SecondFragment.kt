@@ -5,25 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.android_receipt_app.databinding.FragmentFirstBinding
+import android.widget.Toast
 import com.example.android_receipt_app.databinding.FragmentSecondBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         setupButtons()
         return binding.root
@@ -35,8 +28,34 @@ class SecondFragment : Fragment() {
         }
 
         binding.confirm.setOnClickListener {
-            openFirstFragment()
+
+            val newReceipt = createReceipt()
+
+            if (binding.Title1.text.isEmpty()) {
+                Toast.makeText(activity, "Empty title", Toast.LENGTH_SHORT).show()
+            } else if (binding.Description1.text.isEmpty()) {
+                Toast.makeText(activity, "Empty description", Toast.LENGTH_SHORT).show()
+            } else {
+                addReceiptToTheList(newReceipt)
+                openFirstFragment()
+            }
         }
+    }
+
+    private fun createReceipt(): ReceiptEntity {
+        val title = binding.Title1.text.toString()
+        val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
+        val description = binding.Description1.text.toString()
+
+        return ReceiptEntity(
+            title,
+            image,
+            description
+        )
+    }
+
+    private fun addReceiptToTheList(receipt: ReceiptEntity){
+        (activity as MainActivity).viewModel.receiptsMainStorage.add(receipt)
     }
 
     private fun openFirstFragment() {
