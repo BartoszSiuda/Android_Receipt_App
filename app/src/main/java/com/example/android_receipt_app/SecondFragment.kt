@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.android_receipt_app.databinding.FragmentSecondBinding
+import kotlinx.android.synthetic.main.single_receipt.*
 
 class SecondFragment : Fragment() {
 
@@ -46,11 +47,14 @@ class SecondFragment : Fragment() {
         val title = binding.Title1.text.toString()
         val image = "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carmen_Electra_2013.jpg"
         val description = binding.Description1.text.toString()
+        val creationDate = binding.Description1.text.toString()
 
         return ReceiptEntity(
             title,
             image,
-            description
+            description,
+            creationDate,
+
         )
     }
 
