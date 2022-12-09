@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.single_receipt.view.*
+import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ListAdapter (private val context: Context?) : RecyclerView.Adapter<ViewHolder>() {
@@ -26,21 +26,25 @@ class ListAdapter (private val context: Context?) : RecyclerView.Adapter<ViewHol
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.single_receipt, parent, false))
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         // Prepare fetched data
         val title = receiptsList[position].title
         val image = receiptsList[position].image
         val description = receiptsList[position].description
-        val creationDate = receiptsList[position].creationDate.toString()
+        val creationDate = receiptsList[position].creationDate
 
+        val formattedCreationDate = SimpleDateFormat(" d MMMM yyyy").format(creationDate!!.getTime()).toString()
+        val finalCreationDate = "Added: " + formattedCreationDate
         // Set data within the holder
+
         holder.titleXml.text = title
         Picasso.with(context)
             .load(image)
             .into(holder.imageXml)
         holder.descriptionXml.text = description
-        holder.creationDatexml.text = creationDate
+        holder.creationDatexml.text = finalCreationDate
     }
 }
 
