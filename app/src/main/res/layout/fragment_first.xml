@@ -6,13 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
+        app:layout_constraintTop_toBottomOf="@+id/receipt_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/light_gray"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/single_receipt" />
+
+    <TextView
+        android:id="@+id/receipt_title"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="100dp"
+        android:background="@color/green_main_color"
+        android:gravity="center"
+        android:text="@string/BARTEKS_RECEIPTS_APP"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"/>
 
     <Button
         android:id="@+id/button_purple"

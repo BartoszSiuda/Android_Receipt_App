@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Android_Receipt_App</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
@@ -14,5 +14,6 @@
     <string name="CONFIRM">CONFIRM</string>
     <string name="Title_of_the_receipt">Title of the receipt</string>
     <string name="Recepit">Description of the receipt</string>
+    <string name="BARTEKS_RECEIPTS_APP">BARTEK\'S RECEIPTS APP</string>
 
 </resources>
